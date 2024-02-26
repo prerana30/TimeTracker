@@ -1,46 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-/*namespace TimeTracker
-{
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-
-
-            Contractor contract = new Contractor();
-            contract.costperhours();
-            contract.StartTimer();
-            contract.calculatingcost();
-            
-
-        }
-    }
-}*/
-
 
 namespace TimeTracker
 {
-    static class Program
+    public static class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            Console.WriteLine("Enter you full name");
-            string fullname= Console.ReadLine();
-            Console.WriteLine("Enter your cost per hour: ");
-            float costPerHour = float.Parse(Console.ReadLine());
+            Console.WriteLine("Enter your cost per hour per project: ");
+            float costPerHour;
+
+            while (!float.TryParse(Console.ReadLine(), out costPerHour))
+            {
+                Console.WriteLine("Invalid input. Please enter a valid numeric value.");
+            }
 
             Contractor contractor = new Contractor(costPerHour);
             contractor.StartTimer();
         }
     }
 }
-
-
-
-
-
